@@ -1,41 +1,24 @@
-#include <stdio.h>
+#include "raylib.h"
 
-int main(){
-    printf ("olá mundo\n");
-    
-    int x;
-    int y;
-    int z[10];
-    int *p;
+int main(void) {
+    // Inicializa a janela com largura, altura e o título
+    InitWindow(800, 450, "Raylib em C Puro!");
 
-    if  (1) {
-        x = 10;
-        y = 20;
-        p = z;
-    }
-    else    {
-        x = 30;
-        y = 40;
-        p = z + 5;
-    }
-    for (int i = 0; i < 10; i++) {
-        p[i] = i;
-    }   
-    while (x < y) {
-        printf("%d ", p[x]);
-        x++;
-    }
-    switch (y) {
-        case 20:
-            printf("\nValor de y é 20\n");
-            break;
-        case 40:
-            printf("\nValor de y é 40\n");
-            break;
-        default:
-            printf("\nValor de y é desconhecido\n");
+    SetTargetFPS(60); // Controla o jogo a 60 frames por segundo
+
+    // Loop principal do jogo
+    while (!WindowShouldClose()) {
+        // 1. Atualizar variáveis (se necessário)
+
+        // 2. Desenhar na tela
+        BeginDrawing();
+            ClearBackground(BLACK); // Limpa a tela com a cor preta
+            DrawText("Parabéns! Raylib configurada em C.", 190, 200, 20, RAYWHITE);
+        EndDrawing();
     }
 
-    
+    // Fecha a janela e o contexto OpenGL
+    CloseWindow();
+
     return 0;
 }
